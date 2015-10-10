@@ -19,6 +19,146 @@ L'on vous founis aussi le code de certains programmes écris en Mpire ainsi que 
 sortie attendue. Ceux-ci vous permettront de tester votre interpreteur. Par contre rien
 ne vous empêche d'écrire vous même des tests additionnels.
 
+## Langage
+
+### Syntaxe
+
+Les fichiers de programmes sont en ASCII sur 7 bits.
+
+Toutes les caractères <= 32 sont ignorés et considérés comme des séparateurs valides.
+
+Les mots clés: `print`, `byte`, `println`, `while`, `if`, `read` et `not`.
+Ils sont sensibles à la case, réservés et inutilisables comme identifiants (nom 
+de variables)
+Toutes les autres sequences de lettres (a-z, A-Z, _) sont considérés valides comme 
+identifiants. Pas de chiffres.
+
+Les séquences de chiffres sont considérés comme des nombbre littéraux.
+
+### Programmes et [instructions|statement]
+Un programme est constitué d'une séquence d'instruction.
+
+#### Assignations
+
+Syntaxe: `*identifiant* = *valeur*`
+
+Exemples:
+
+~~~
+a = 5
+foo = a + 5
+~~~
+
+#### Affichage
+
+Syntaxes: `print *chaine*` ou `print [byte] valeur` ou `println`
+
+exemples:
+
+~~~
+print "hello"
+print 42
+print byte 42
+println
+~~~
+
+#### Séquences
+
+Les séquences d'instructions sont exécutés en ordre.
+
+Exemples:
+
+~~~
+a = 1 print "a=" print a println
+a=1print"a="print a println
+~~~
+
+Plusieurs instructions peuvent être groupées avec des parentèses
+
+~~~
+(a = 1 print "a=" print a println)
+~~~
+
+#### Tant que
+
+Syntaxe: `while *condition* *instruction*`
+
+Exemple:
+
+~~~
+a = 5
+while a>0 (print "*" a = a - 1)
+~~~
+
+#### Si
+
+Syntaxe: `if *condition* *instruction* [else *instruction*]`
+
+Exemple:
+
+~~~
+a = 5
+if a > 0 print "ok"
+if a < 0 print "fail"
+if a = 5 print "ok" else print "fail"
+~~~
+
+### Valeurs
+
+Les valeurs sont des entiers signés avec au moins 16 bits de précision.
+
+#### Littéraux
+
+Représentation habituelle en décimaux oubien en caractères ASCII 7 bits (avec 
+le code ASCII)
+
+#### Variables
+
+La portée des variables est globale.
+Le comportement de l'utilisation d'une variable non-définie est non-défini.
+
+#### Opérations arithmétiques de base
+
+* Opérateurs binaires infix + - * /
+* Opérateur unaire - pour la négation
+* Parantèses pour le groupement et la priorité
+* Priorité des opérations habituelle
+
+#### Lecture
+
+Syntaxe `read` et `read byte`
+
+### Conditions
+
+#### Comparaison
+
+Syntaxe: `*valeur* [*op* *valeur*]+`
+
+Où op est un des symboles de comparaison suivant: `= != < <= > >=`
+
+Exemples:
+
+~~~
+a = 1
+b = 2
+if a = 1 != b < 4 print "ok"
+if a = 1 != b = 4 print "fail"
+~~~
+
+#### Boolean operations
+
+Les trois opérateurs booléens `||`, `&&` et `not` peuvent être utilisés.
+`||` étant le moins prioritaire et `not` etant le plus prioritaire.
+Les parentèses peuvent être utilisés pour le groupement et la priorité.
+
+Exemples:
+
+~~~
+a = 5
+if a > 2 && a < 7 print "ok"
+if not (a < 2 || a > 7) print "ok"
+~~~
+
 ## Spécificitées techniques
 
 Vous pouvez faire votre interpreteur en Java, en Python ou en Ruby. Referez-vous à la sous-section correspondante pour

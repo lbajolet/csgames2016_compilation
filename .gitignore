@@ -5,3 +5,4 @@ out/*
 *.dot
 
 *.sw[op]
+*.class
