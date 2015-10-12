@@ -35,6 +35,14 @@ identifiants. Pas de chiffres.
 
 Les séquences de chiffres sont considérés comme des nombbre littéraux.
 
+#### Particularité
+Le caractère `=` sert autant à l'assignation qu'à la comparaison.
+
+Les comparaisons peuvent être chaînées et se propagent de gauche à droite: `a = b > 2 <= 3` 
+Signifie `a = b` et `a > 2` et `a <= 3`
+
+Aucuns délimiteurs de portée (pas de `{ ... }` ou d'indentation nécessaire).
+
 ### Programmes et [instructions|statement]
 Un programme est constitué d'une séquence d'instruction.
 
