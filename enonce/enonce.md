@@ -15,7 +15,7 @@ TODO
 
 Vous devrez développer un interpreteur de Mpire. Les specifications du langage
 vous sont fournies ainsi que plusieurs outils (Parseur, Lexeur) selon les langages.
-L'on vous founis aussi le code de certains programmes écris en Mpire ainsi que leur
+On vous founit aussi le code de certains programmes écris en Mpire ainsi que leur
 sortie attendue. Ceux-ci vous permettront de tester votre interpreteur. Par contre rien
 ne vous empêche d'écrire vous même des tests additionnels.
 
@@ -25,15 +25,15 @@ ne vous empêche d'écrire vous même des tests additionnels.
 
 Les fichiers de programmes sont en ASCII sur 7 bits.
 
-Toutes les caractères <= 32 sont ignorés et considérés comme des séparateurs valides.
+Tous les caractères <= 32 sont ignorés et considérés comme des séparateurs valides.
 
 Les mots clés: `print`, `byte`, `println`, `while`, `if`, `read` et `not`.
 Ils sont sensibles à la case, réservés et inutilisables comme identifiants (nom 
 de variables)
-Toutes les autres sequences de lettres (a-z, A-Z, _) sont considérés valides comme 
+Toutes les autres séquences de lettres (a-z, A-Z, _) sont considérées valides comme 
 identifiants. Pas de chiffres.
 
-Les séquences de chiffres sont considérés comme des nombbre littéraux.
+Les séquences de chiffres sont considérées comme des nombres littéraux.
 
 #### Particularité
 Le caractère `=` sert autant à l'assignation qu'à la comparaison.
@@ -41,10 +41,10 @@ Le caractère `=` sert autant à l'assignation qu'à la comparaison.
 Les comparaisons peuvent être chaînées et se propagent de gauche à droite: `a = b > 2 <= 3` 
 Signifie `a = b` et `a > 2` et `a <= 3`
 
-Aucuns délimiteurs de portée (pas de `{ ... }` ou d'indentation nécessaire).
+Aucun délimiteur de portée (pas de `{ ... }` ou d'indentation nécessaire).
 
 ### Programmes et [instructions|statement]
-Un programme est constitué d'une séquence d'instruction.
+Un programme est constitué d'une séquence d'instructions.
 
 #### Assignations
 
@@ -72,7 +72,7 @@ println
 
 #### Séquences
 
-Les séquences d'instructions sont exécutés en ordre.
+Les séquences d'instructions sont exécutées en ordre.
 
 Exemples:
 
@@ -81,7 +81,7 @@ a = 1 print "a=" print a println
 a=1print"a="print a println
 ~~~
 
-Plusieurs instructions peuvent être groupées avec des parentèses
+Plusieurs instructions peuvent être groupées avec des parenthèses
 
 ~~~
 (a = 1 print "a=" print a println)
@@ -117,7 +117,7 @@ Les valeurs sont des entiers signés avec au moins 16 bits de précision.
 
 #### Littéraux
 
-Représentation habituelle en décimaux oubien en caractères ASCII 7 bits (avec 
+Représentation habituelle en décimaux ou bien en caractères ASCII 7 bits (avec 
 le code ASCII)
 
 #### Variables
@@ -129,7 +129,7 @@ Le comportement de l'utilisation d'une variable non-définie est non-défini.
 
 * Opérateurs binaires infix + - * /
 * Opérateur unaire - pour la négation
-* Parantèses pour le groupement et la priorité
+* Parenthèses pour le groupement et la priorité
 * Priorité des opérations habituelle
 
 #### Lecture
@@ -142,7 +142,7 @@ Syntaxe `read` et `read byte`
 
 Syntaxe: `*valeur* [*op* *valeur*]+`
 
-Où op est un des symboles de comparaison suivant: `= != < <= > >=`
+Où op est l'un des symboles de comparaison suivant: `= != < <= > >=`
 
 Exemples:
 
@@ -157,7 +157,7 @@ if a = 1 != b = 4 print "fail"
 
 Les trois opérateurs booléens `||`, `&&` et `not` peuvent être utilisés.
 `||` étant le moins prioritaire et `not` etant le plus prioritaire.
-Les parentèses peuvent être utilisés pour le groupement et la priorité.
+Les parenthèses peuvent être utiliséss pour le groupement et la priorité.
 
 Exemples:
 
@@ -169,7 +169,7 @@ if not (a < 2 || a > 7) print "ok"
 
 ## Spécificitées techniques
 
-Vous pouvez faire votre interpreteur en Java, en Python ou en Ruby. Referez-vous à la sous-section correspondante pour
+Vous pouvez faire votre interpreteur en Java, en Python ou en Ruby. Réferez-vous à la sous-section correspondante pour
 connaître les détails techniques à suivre pour le développement.
 
 ### Java
@@ -181,13 +181,13 @@ Pour l'utiliser:
 sablecc mpire.sablecc
 ```
 
-Vous aurez alors une série de classes de générées dans `language_mpire`.
+Vous aurez alors une série de classes générées dans `language_mpire`.
 
 #### Grammaire
 
 Le fichier `mpire.sablecc` est ce qui défini la grammaire de votre langage. Un squelette de départ vous est fourni. Il
 suffit d'y introduire les nouveaux éléments de votre grammaire et de relancer SableCC. Il vous génèrera la version
-mise-à-jour de vos classes representant votre langage.
+mise-à-jour de vos classes représentant votre langage.
 
 Voici une version commentée du squelette de départ:
 ```
@@ -254,7 +254,7 @@ expr =
 
 #### Interpreteur
 
-Ce n'est pas tout de spécifier comment parser un langage, il faut aussi faire quelque 
+Ce n'est pas le tout de spécifier comment parser un langage, il faut aussi faire quelque 
 chose avec. SableCC vous construit automatiquement un générateur d'arbre syntaxique 
 abstrait (AST). Il vous fourni aussi un visiteur de base pour parcourir cet arbre.
 Bien sûr, il ne fait rien à part parcourir l'arbre. Vous devrez donc implémenter 
@@ -262,7 +262,7 @@ les différents comportements de votre visiteur sur chaque noeud de l'AST de vos
 
 Nous vous avons fourni une classe Interpret. Elle est une sous-classe de Walker 
 (générée par SableCC). C'est dans cette classe qu'il faudra surcharger les méthodes de base
-du visiteur de votre AST. Les méthodes à surcharger sont les methodes `case*` de `Walker`. Elles définissent le comportement dans le cas où votre visiteur rencontre un noeud de 
+du visiteur de votre AST. Les méthodes à surcharger sont les méthodes `case*` de `Walker`. Elles définissent le comportement dans le cas où votre visiteur rencontre un noeud de 
 ce type.
 
 Voici alors une version commentée du squelette Interpret:
@@ -337,7 +337,7 @@ public class Interpret extends Walker {
 ##### Note1
 La visite se fait par `Double Dispatch`. C'est ce qui permet d'avoir un comportement
 différent selon le type de noeud rencontré. Ceci vous permet d'avoir toutes vos méthodes
-pour traiter les différents neouds dans votre classe Interpret. Les différentes classes Noeud
+pour traiter les différents noeuds dans votre classe Interpret. Les différentes classes Noeud
 savent quelle méthode d'Interpret doit être appellée sur elles-même. C'est ce qui explique
 la convention d'appel suivante:
 ``` java
@@ -418,4 +418,3 @@ public class Objet3 implements ObjetPere {
 	}
 }
 ```
-
