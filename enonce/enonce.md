@@ -9,7 +9,27 @@
 
 ## Mise en contexte
 
-TODO
+Message de l'empire : 
+Bonjour chers participants,
+Le dôme est une merveille de technologie, mais il n'est pas encore parfait.
+Pour le moment, toute son infrastructure est gérée à l'aide d'un langage de
+l'ancienne ère, dont nous n'avons pas pu récupérer les sources. Nous sommes donc
+limités au niveau évolutivité et par rapport au contrôle que nous avons sur ce
+langage. Cette épreuve a pour but d'évaluer votre capacité à développer un nouveau
+langage, nous pourrions utiliser les compétences des meilleurs d'entre vous par 
+la suite pour en faire un qui servira pour le contrôle du dôme tout entier.
+
+Message des rebelles:
+Salut à tous les rebelles,
+Nous savons de source sûre que l'empire a oublié de bien nettoyer tous ses
+fichiers de test pour cette épreuve. Il se pourrait qu'il en reste un ou deux
+qui contiennent des informations sur le langage utilisé actuellement par le dôme.
+Cela est une information très intéressante pour la rébellion, essayez de trouver
+cette information. Elle vous servira pour le mission board.
+
+TODO: Rajouter un fichier caché dans les tests qui contient le nom du langage utilisé
+par le dôme (un pas trop évident pour qu'ils puissent pas brute force), ce sera une entrée
+pour débloquer une track dans le mission board rebelle.
 
 ## Description
 
