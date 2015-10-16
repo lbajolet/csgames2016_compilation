@@ -26,7 +26,7 @@ redef class Nint
 end
 
 redef class Nchar
-	redef fun accept_minilang(v) do v.stack.push(text[1].ascii)
+	redef fun accept_minilang(v) do v.stack.push(text[1].code_point)
 end
 
 redef class Ns_assign
@@ -45,7 +45,7 @@ end
 redef class Ns_print_byte
 	redef fun accept_minilang(v) do
 		super
-		printn v.stack.pop.ascii
+		printn v.stack.pop.code_point
 	end
 end
 redef class Ns_print_str
