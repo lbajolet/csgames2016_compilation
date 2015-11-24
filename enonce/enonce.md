@@ -9,33 +9,33 @@
 
 ## Mise en contexte
 
-Message de l'empire : 
+Message de l'Empire :
 Bonjour chers participants,
-Le dôme est une merveille de technologie, mais il n'est pas encore parfait.
+Le Dôme est une merveille de technologie, mais il n'est pas encore parfait.
 Pour le moment, toute son infrastructure est gérée à l'aide d'un langage de
 l'ancienne ère, dont nous n'avons pas pu récupérer les sources. Nous sommes donc
 limités au niveau évolutivité et par rapport au contrôle que nous avons sur ce
 langage. Cette épreuve a pour but d'évaluer votre capacité à développer un nouveau
 langage, nous pourrions utiliser les compétences des meilleurs d'entre vous par 
-la suite pour en faire un qui servira pour le contrôle du dôme tout entier.
+la suite pour en faire un qui servira pour le contrôle du Dôme tout entier.
 
 Message des rebelles:
-Salut à tous les rebelles,
-Nous savons de source sûre que l'empire a oublié de bien nettoyer tous ses
+Salut à tous les rebelles.
+Nous savons de source sûre que l'Empire a oublié de bien nettoyer tous ses
 fichiers de test pour cette épreuve. Il se pourrait qu'il en reste un ou deux
-qui contiennent des informations sur le langage utilisé actuellement par le dôme.
-Cela est une information très intéressante pour la rébellion, essayez de trouver
-cette information. Elle vous servira pour le mission board.
+qui contiennent des informations sur le langage utilisé actuellement par le Dôme.
+Cela est une information très intéressante pour la rébellion, essayez de la trouver.
+Elle vous servira pour le mission board.
 
 TODO: Rajouter un fichier caché dans les tests qui contient le nom du langage utilisé
-par le dôme (un pas trop évident pour qu'ils puissent pas brute force), ce sera une entrée
+par le Dôme (un pas trop évident pour qu'ils puissent pas brute force), ce sera une entrée
 pour débloquer une track dans le mission board rebelle.
 
 ## Description
 
 Vous devrez développer un interpreteur de Mpire. Les specifications du langage
 vous sont fournies ainsi que plusieurs outils (Parseur, Lexeur) selon les langages.
-On vous founit aussi le code de certains programmes écris en Mpire ainsi que leur
+On vous fournit aussi le code de certains programmes écrits en Mpire ainsi que leur
 sortie attendue. Ceux-ci vous permettront de tester votre interpreteur. Par contre rien
 ne vous empêche d'écrire vous même des tests additionnels.
 
@@ -154,7 +154,8 @@ Le comportement de l'utilisation d'une variable non-définie est non-défini.
 
 #### Lecture
 
-Syntaxe `read` et `read byte`
+Syntaxe `read` et `read byte`.
+Read va lire une ligne et la transformer en entier tel que défini en Mpire, read byte va lire le prochain octet de l'entrée standard.
 
 ### Conditions
 
@@ -177,7 +178,7 @@ if a = 1 != b = 4 print "fail"
 
 Les trois opérateurs booléens `||`, `&&` et `not` peuvent être utilisés.
 `||` étant le moins prioritaire et `not` etant le plus prioritaire.
-Les parenthèses peuvent être utiliséss pour le groupement et la priorité.
+Les parenthèses peuvent être utilisées pour le groupement et la priorité.
 
 Exemples:
 
@@ -187,14 +188,14 @@ if a > 2 && a < 7 print "ok"
 if not (a < 2 || a > 7) print "ok"
 ~~~
 
-## Spécificitées techniques
+## Spécificités techniques
 
-Vous pouvez faire votre interpreteur en Java, en Python ou en Ruby. Réferez-vous à la sous-section correspondante pour
-connaître les détails techniques à suivre pour le développement.
+Vous pouvez faire votre interpreteur en Java, en Python ou en Ruby. Réferez-vous à la sous-section correspondante
+pour connaître les détails techniques à suivre pour le développement.
 
 ### Java
 
-SableCC Lit une grammaire `*.sablecc` et vous génère un squelette dans `language_*`.
+SableCC lit une grammaire `*.sablecc` et vous génère un squelette dans `language_*`.
 Pour l'utiliser:
 
 ```
@@ -205,9 +206,9 @@ Vous aurez alors une série de classes générées dans `language_mpire`.
 
 #### Grammaire
 
-Le fichier `mpire.sablecc` est ce qui défini la grammaire de votre langage. Un squelette de départ vous est fourni. Il
-suffit d'y introduire les nouveaux éléments de votre grammaire et de relancer SableCC. Il vous génèrera la version
-mise-à-jour de vos classes représentant votre langage.
+Le fichier `mpire.sablecc` est ce qui défini la grammaire de votre langage. Un squelette de départ vous est fourni.
+Il suffit d'y introduire les nouveaux éléments de votre grammaire et de relancer SableCC. Il vous génèrera
+la version mise-à-jour de vos classes représentant votre langage.
 
 Voici une version commentée du squelette de départ:
 ```
@@ -218,9 +219,9 @@ Lexer
 
 /* Ici, on definit les types de jetons qui pourront etre utilises. 
  * Ils sont définis à l'aide d'expressions regulières de base.
- * Ils peuvent etre recursifs.
- * Vous pouvez en definir d'autres.
- * Les caracteres de controle (\n) sont definis avec leur valeur ascii: \n == #10
+ * Ils peuvent etre récursifs.
+ * Vous pouvez en définir d'autres.
+ * Les caracteres de controle (\n) sont définis avec leur valeur ascii: \n == #10
  */
 
 l = 'a'..'z'|'A'..'Z'|'_';
@@ -237,7 +238,7 @@ Ignored blank; // On s'assure que les espaces blancs ne sont pas transformés en
 Parser
 
 /*
- * Un noeud `prog` est consitué d'un noeud `stmt` suivi d'un noeud `prog` oubien
+ * Un noeud `prog` est consitué d'un noeud `stmt` suivi d'un noeud `prog` ou
  * tout simplement un seul noeud `stmt`
  */
 
@@ -261,9 +262,9 @@ stmt =
 
 /*
  * C'est également dans la partie Parser que vous faites référence à vos différents jetons
- * définis dans la parti Lexer.
+ * définis dans la partie Lexer.
  * 
- * NB: À titre d'exemple, un noeud `expr` peut être un token `int` oubien rien.
+ * NB: À titre d'exemple, un noeud `expr` peut être un token `int` ou rien.
  */
 
 expr = 
@@ -276,14 +277,14 @@ expr =
 
 Ce n'est pas le tout de spécifier comment parser un langage, il faut aussi faire quelque 
 chose avec. SableCC vous construit automatiquement un générateur d'arbre syntaxique 
-abstrait (AST). Il vous fourni aussi un visiteur de base pour parcourir cet arbre.
+abstrait (AST). Il vous fournit aussi un visiteur de base pour parcourir cet arbre.
 Bien sûr, il ne fait rien à part parcourir l'arbre. Vous devrez donc implémenter 
 les différents comportements de votre visiteur sur chaque noeud de l'AST de vos programmes.
 
 Nous vous avons fourni une classe Interpret. Elle est une sous-classe de Walker 
 (générée par SableCC). C'est dans cette classe qu'il faudra surcharger les méthodes de base
-du visiteur de votre AST. Les méthodes à surcharger sont les méthodes `case*` de `Walker`. Elles définissent le comportement dans le cas où votre visiteur rencontre un noeud de 
-ce type.
+du visiteur de votre AST. Les méthodes à surcharger sont les méthodes `case*` de `Walker`.
+Elles définissent le comportement dans le cas où votre visiteur rencontre un noeud de ce type.
 
 Voici alors une version commentée du squelette Interpret:
 ``` java
@@ -330,11 +331,11 @@ public class Interpret extends Walker {
 		System.out.print(str);
 	}
 
+	/*
+	 * Vous ne devriez pas avoir à modifier le `main` à moins d'être spéciaux
+	 */
 	public static void main(String[] args)
 		throws Exception {
-			/*
-			 * Vous ne devriez pas avoir à modifier le `main` à moins d'être spéciaux
-			 */
 
 		Reader in;
 
@@ -357,8 +358,8 @@ public class Interpret extends Walker {
 ##### Note1
 La visite se fait par `Double Dispatch`. C'est ce qui permet d'avoir un comportement
 différent selon le type de noeud rencontré. Ceci vous permet d'avoir toutes vos méthodes
-pour traiter les différents noeuds dans votre classe Interpret. Les différentes classes Noeud
-savent quelle méthode d'Interpret doit être appellée sur elles-même. C'est ce qui explique
+pour traiter les différents noeuds dans votre classe Interpret. Chaque classe de Noeud
+savent quelle méthode d'Interpret doit être appellée sur elle-même. C'est ce qui explique
 la convention d'appel suivante:
 ``` java
 node.get_ChildX().apply(this);
