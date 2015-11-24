@@ -2,7 +2,7 @@ test -d out || mkdir out
 
 for source in "$@"; do
 	bn=`basename "$source" .m`
-	input=programs_input/"$bn".input
+	input=programs_inputs/"$bn".input
 	test -e "$input" || input=/dev/null
 	output=out/"$bn".output
 	sav=programs_output/"$bn".output
