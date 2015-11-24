@@ -150,7 +150,7 @@ redef class Ncp_gt
 end
 
 redef class Ncp_ge
-	redef fun eval(l, r) do return l > r
+	redef fun eval(l, r) do return l >= r
 end
 
 
@@ -204,7 +204,7 @@ redef class Ne_read_byte
 	redef fun accept_minilang(v) do
 		var t = stdin.read_byte
 		if t == null then
-			v.stack.push(-1)
+			v.stack.push -1
 		else
 			v.stack.push(t.to_i)
 		end
