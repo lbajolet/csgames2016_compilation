@@ -19,14 +19,6 @@ langage. Cette épreuve a pour but d'évaluer votre capacité à développer un 
 langage, nous pourrions utiliser les compétences des meilleurs d'entre vous par 
 la suite pour en faire un qui servira pour le contrôle du Dôme tout entier.
 
-Message des rebelles:
-Salut à tous les rebelles.
-Nous savons de source sûre que l'Empire a oublié de bien nettoyer tous ses
-fichiers de test pour cette épreuve. Il se pourrait qu'il en reste un ou deux
-qui contiennent des informations sur le langage utilisé actuellement par le Dôme.
-Cela est une information très intéressante pour la rébellion, essayez de la trouver.
-Elle vous servira pour le mission board.
-
 TODO: Rajouter un fichier caché dans les tests qui contient le nom du langage utilisé
 par le Dôme (un pas trop évident pour qu'ils puissent pas brute force), ce sera une entrée
 pour débloquer une track dans le mission board rebelle.
@@ -47,8 +39,8 @@ Les fichiers de programmes sont en ASCII sur 7 bits.
 
 Tous les caractères <= 32 sont ignorés et considérés comme des séparateurs valides.
 
-Les mots clés: `print`, `byte`, `println`, `while`, `if`, `read` et `not`.
-Ils sont sensibles à la case, réservés et inutilisables comme identifiants (nom 
+Les mots-clés sont: `print`, `byte`, `println`, `while`, `if`, `read` et `not`.
+Ils sont sensibles à la casse, réservés et inutilisables comme identifiants (nom 
 de variables)
 Toutes les autres séquences de lettres (a-z, A-Z, _) sont considérées valides comme 
 identifiants. Pas de chiffres.
@@ -68,7 +60,7 @@ Un programme est constitué d'une séquence d'instructions.
 
 #### Assignations
 
-Syntaxe: `*identifiant* = *valeur*`
+Syntaxe: `<identifiant> = <valeur>`
 
 Exemples:
 
@@ -79,9 +71,9 @@ foo = a + 5
 
 #### Affichage
 
-Syntaxes: `print *chaine*` ou `print [byte] valeur` ou `println`
+Syntaxes: `print <chaine>` ou `print [byte] <valeur>` ou `println`
 
-exemples:
+Exemples:
 
 ~~~
 print "hello"
@@ -109,7 +101,7 @@ Plusieurs instructions peuvent être groupées avec des parenthèses
 
 #### Tant que
 
-Syntaxe: `while *condition* *instruction*`
+Syntaxe: `while <condition> <instruction>`
 
 Exemple:
 
@@ -120,7 +112,7 @@ while a>0 (print "*" a = a - 1)
 
 #### Si
 
-Syntaxe: `if *condition* *instruction* [else *instruction*]`
+Syntaxe: `if <condition> <instruction> [else <instruction>]`
 
 Exemple:
 
@@ -140,28 +132,30 @@ Les valeurs sont des entiers signés avec au moins 16 bits de précision.
 Représentation habituelle en décimaux ou bien en caractères ASCII 7 bits (avec 
 le code ASCII)
 
+TODO examples
+
 #### Variables
 
 La portée des variables est globale.
-Le comportement de l'utilisation d'une variable non-définie est non-défini.
+Le comportement de l'utilisation d'une variable non-définie est non-déterminé.
 
 #### Opérations arithmétiques de base
 
-* Opérateurs binaires infix + - * /
-* Opérateur unaire - pour la négation
+* Opérateurs binaires infixes `+ - * /`
+* Opérateur de négation unaire `-`
 * Parenthèses pour le groupement et la priorité
 * Priorité des opérations habituelle
 
 #### Lecture
 
 Syntaxe `read` et `read byte`.
-Read va lire une ligne et la transformer en entier tel que défini en Mpire, read byte va lire le prochain octet de l'entrée standard.
+`read` va lire une ligne et la transformer en entier tel que défini en Mpire, `read byte` va lire le prochain octet de l'entrée standard.
 
 ### Conditions
 
 #### Comparaison
 
-Syntaxe: `*valeur* [*op* *valeur*]+`
+Syntaxe: `<valeur> [<op> <valeur>]+`
 
 Où op est l'un des symboles de comparaison suivant: `= != < <= > >=`
 
@@ -206,7 +200,7 @@ Vous aurez alors une série de classes générées dans `language_mpire`.
 
 #### Grammaire
 
-Le fichier `mpire.sablecc` est ce qui défini la grammaire de votre langage. Un squelette de départ vous est fourni.
+Le fichier `mpire.sablecc` est ce qui définit la grammaire de votre langage. Un squelette de départ vous est fourni.
 Il suffit d'y introduire les nouveaux éléments de votre grammaire et de relancer SableCC. Il vous génèrera
 la version mise-à-jour de vos classes représentant votre langage.
 
@@ -217,11 +211,11 @@ Language mpire; // Le nom de votre langage est défini ici
 
 Lexer
 
-/* Ici, on definit les types de jetons qui pourront etre utilises. 
+/* Ici, on definit les types de jetons qui pourront être utilisés. 
  * Ils sont définis à l'aide d'expressions regulières de base.
  * Ils peuvent etre récursifs.
  * Vous pouvez en définir d'autres.
- * Les caracteres de controle (\n) sont définis avec leur valeur ascii: \n == #10
+ * Les caracteres de contrôle (\n) sont définis avec leur valeur ascii: \n == #10
  */
 
 l = 'a'..'z'|'A'..'Z'|'_';
@@ -251,7 +245,7 @@ prog = stmt prog | stmt;
  *
  * On peut spécifier la composition des noeuds avec soit d'autres noeuds ou des littéraux
  * Exemple: Ìci le noeud stmt_print est composé de la chaîne de caractères 'print' 
- *          suivi d'un noeud expr
+ *          suivi d'un noeud expr.
  */
 
 stmt = 
@@ -273,7 +267,7 @@ expr =
 
 ```
 
-#### Interpreteur
+#### Interpréteur
 
 Ce n'est pas le tout de spécifier comment parser un langage, il faut aussi faire quelque 
 chose avec. SableCC vous construit automatiquement un générateur d'arbre syntaxique 
@@ -281,12 +275,13 @@ abstrait (AST). Il vous fournit aussi un visiteur de base pour parcourir cet arb
 Bien sûr, il ne fait rien à part parcourir l'arbre. Vous devrez donc implémenter 
 les différents comportements de votre visiteur sur chaque noeud de l'AST de vos programmes.
 
-Nous vous avons fourni une classe Interpret. Elle est une sous-classe de Walker 
+Nous vous avons fourni une classe `Interpret`. Elle est une sous-classe de `Walker` 
 (générée par SableCC). C'est dans cette classe qu'il faudra surcharger les méthodes de base
 du visiteur de votre AST. Les méthodes à surcharger sont les méthodes `case*` de `Walker`.
 Elles définissent le comportement dans le cas où votre visiteur rencontre un noeud de ce type.
 
 Voici alors une version commentée du squelette Interpret:
+
 ``` java
 package language_mpire;
 
@@ -332,7 +327,7 @@ public class Interpret extends Walker {
 	}
 
 	/*
-	 * Vous ne devriez pas avoir à modifier le `main` à moins d'être spéciaux
+	 * Vous ne devriez pas avoir à modifier le `main` à moins d'être sûr de vous.
 	 */
 	public static void main(String[] args)
 		throws Exception {
@@ -355,21 +350,25 @@ public class Interpret extends Walker {
 }
 
 ```
-##### Note1
+##### Note
+
 La visite se fait par `Double Dispatch`. C'est ce qui permet d'avoir un comportement
 différent selon le type de noeud rencontré. Ceci vous permet d'avoir toutes vos méthodes
-pour traiter les différents noeuds dans votre classe Interpret. Chaque classe de Noeud
-savent quelle méthode d'Interpret doit être appellée sur elle-même. C'est ce qui explique
+pour traiter les différents noeuds dans votre classe `Interpret`. Chaque classe de noeud
+savent quelle méthode d'`Interpret` doit être appellée sur elle-même. C'est ce qui explique
 la convention d'appel suivante:
+
 ``` java
 node.get_ChildX().apply(this);
 ```
+
 Cette ligne lance simplement la visite sur l'enfant de type `ChildX` de node.
 
-##### Protip1
-Il est fortement suggéré de regarder le code des différentes classes de Noeuds générées
+##### Protip
+
+Il est fortement suggéré de regarder le code des différentes classes de noeuds générées
 par SableCC. Les attributs à l'intérieur de celles-ci sont importants à la réalisation
-de votre interpreteur.
+de votre interpréteur.
 
 ### Python
 
