@@ -82,10 +82,16 @@ print byte 42
 println
 ~~~
 
+Output:
+
+~~~
+hello42*
+~~~
+
 #### Séquences
 
 Les séquences d'instructions sont exécutées en ordre.
-Les espaces sont entièrement ignorés, et n'ont aucune importance sur le flux d'exécution du programme.
+Les espaces n'ont aucune importance sur le flux d'exécution du programme.
 
 Exemples:
 
@@ -94,10 +100,22 @@ a = 1 print "a=" print a println
 a=1print"a="print a println
 ~~~
 
+Output:
+
+~~~
+a=1
+a=1
+~~~
+
 Plusieurs instructions peuvent être groupées avec des parenthèses
 
 ~~~
 (a = 1 print "a=" print a println)
+~~~
+Output:
+
+~~~
+a=1
 ~~~
 
 #### Tant que
@@ -109,6 +127,13 @@ Exemple:
 ~~~
 a = 5
 while a>0 (print "*" a = a - 1)
+print byte 10
+~~~
+
+Output:
+
+~~~
+*****
 ~~~
 
 #### Si
@@ -122,6 +147,12 @@ a = 5
 if a > 0 print "ok"
 if a < 0 print "fail"
 if a = 5 print "ok" else print "fail"
+~~~
+
+Output:
+
+~~~
+okok
 ~~~
 
 ### Valeurs
@@ -169,6 +200,12 @@ if a = 1 != b < 4 print "ok"
 if a = 1 != b = 4 print "fail"
 ~~~
 
+Output:
+
+~~~
+ok
+~~~
+
 #### Boolean operations
 
 Les trois opérateurs booléens `||`, `&&` et `not` peuvent être utilisés.
@@ -181,6 +218,13 @@ Exemples:
 a = 5
 if a > 2 && a < 7 print "ok"
 if not (a < 2 || a > 7) print "ok"
+print byte 10
+~~~
+
+Output:
+
+~~~
+okok
 ~~~
 
 ## Spécificités techniques
