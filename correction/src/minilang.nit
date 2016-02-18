@@ -196,8 +196,12 @@ redef class Ne_var
 end
 redef class Ne_read
 	redef fun accept_minilang(v) do
-		var t = gets
-		v.stack.push(t.to_i)
+		var t = stdin.read_line
+		if t.is_int then
+			v.stack.push(t.to_i)
+		else
+			v.stack.push -1
+		end
 	end
 end
 redef class Ne_read_byte
