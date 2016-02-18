@@ -415,15 +415,6 @@ Il est fortement suggéré de regarder le code des différentes classes de noeud
 par SableCC. Les attributs à l'intérieur de celles-ci sont importants à la réalisation
 de votre interpréteur.
 
-### Python
-
-TODO
-
-### Ruby
-
-TODO
-
-
 
 ## Remise
  * Remettez le repertoire `src` en entier.
