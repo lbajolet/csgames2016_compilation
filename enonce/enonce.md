@@ -51,7 +51,7 @@ Les séquences de chiffres sont considérées comme des nombres littéraux.
 Le caractère `=` sert autant à l'assignation qu'à la comparaison.
 
 Les comparaisons peuvent être chaînées et se propagent de gauche à droite: `a = b > 2 <= 3` 
-Signifie `a = b` et `a > 2` et `a <= 3`
+Signifie `a = b` et `b > 2` et `2 <= 3`
 
 Aucun délimiteur de portée (pas de `{ ... }` ou d'indentation nécessaire).
 
@@ -85,6 +85,7 @@ println
 #### Séquences
 
 Les séquences d'instructions sont exécutées en ordre.
+Les espaces sont entièrement ignorés, et n'ont aucune importance sur le flux d'exécution du programme.
 
 Exemples:
 
