@@ -164,9 +164,19 @@ Les valeurs sont des entiers signés avec au moins 16 bits de précision.
 #### Littéraux
 
 Représentation habituelle en décimaux ou bien en caractères ASCII 7 bits (avec 
-le code ASCII)
+le code ASCII).
 
-TODO examples
+~~~
+print byte 42
+if 42 = '* print "="
+print '*
+~~~
+
+Output:
+
+~~~
+*=42
+~~~
 
 #### Variables
 
