@@ -244,6 +244,10 @@ okok
 Vous pouvez faire votre interpreteur en Java, en Python ou en Ruby. Réferez-vous à la sous-section correspondante
 pour connaître les détails techniques à suivre pour le développement.
 
+
+TODO: peut-etre indiquer qu'ils sont libre d'utiliser les langages et outils disponible sur la machine s'il preferent.
+
+
 ### Java
 
 SableCC lit une grammaire `*.sablecc` et vous génère un squelette dans `language_*`.
@@ -260,6 +264,9 @@ Vous aurez alors une série de classes générées dans `language_mpire`.
 Le fichier `mpire.sablecc` est ce qui définit la grammaire de votre langage. Un squelette de départ vous est fourni.
 Il suffit d'y introduire les nouveaux éléments de votre grammaire et de relancer SableCC. Il vous génèrera
 la version mise-à-jour de vos classes représentant votre langage.
+
+TODO: plutot deplacer les commentaires dans le squelette et simplifier l'ennoncé
+
 
 Voici une version commentée du squelette de départ:
 ```
@@ -336,6 +343,9 @@ Nous vous avons fourni une classe `Interpret`. Elle est une sous-classe de `Walk
 (générée par SableCC). C'est dans cette classe qu'il faudra surcharger les méthodes de base
 du visiteur de votre AST. Les méthodes à surcharger sont les méthodes `case*` de `Walker`.
 Elles définissent le comportement dans le cas où votre visiteur rencontre un noeud de ce type.
+
+
+TODO: de meme, mettre les info dans le squelette et eviter de repeter ici
 
 Voici alors une version commentée du squelette Interpret:
 
