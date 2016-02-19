@@ -1,7 +1,7 @@
-package language_mpire;
 
 import java.util.*;
 import java.io.*;
+import language_mpire.*;
 
 public class Interpret extends Walker {
 
