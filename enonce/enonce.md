@@ -73,6 +73,8 @@ foo = a + 5
 
 Syntaxes: `print <chaine>` ou `print [byte] <valeur>` ou `println`
 
+NOTE: `println` ne prend pas d'arguments, ce comportement est volontaire
+
 Exemples:
 
 ~~~
