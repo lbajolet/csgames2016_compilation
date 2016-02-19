@@ -1,4 +1,4 @@
-/* Grammar of a mini procedural programming language */
+/* Grammar of Mpire. eMpirical Procedural Idiom for Robust Execution */
 Language mpire;
 
 Lexer

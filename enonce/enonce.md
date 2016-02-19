@@ -25,7 +25,7 @@ pour débloquer une track dans le mission board rebelle.
 
 ## Description
 
-Vous devrez développer un interpreteur de Mpire. Les specifications du langage
+Vous devrez développer un interpreteur de Mpire (eMpirical Procedural Idiom for Robust Execution). Les specifications du langage
 vous sont fournies ainsi que plusieurs outils (Parseur, Lexeur) selon les langages.
 On vous fournit aussi le code de certains programmes écrits en Mpire ainsi que leur
 sortie attendue. Ceux-ci vous permettront de tester votre interpreteur. Par contre rien
